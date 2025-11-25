@@ -88,6 +88,7 @@
             input_soDuBanDau.Name = "input_soDuBanDau";
             input_soDuBanDau.Size = new Size(309, 36);
             input_soDuBanDau.TabIndex = 4;
+            input_soDuBanDau.TextChanged += input_soDuBanDau_TextChanged;
             // 
             // input_mieuTa
             // 

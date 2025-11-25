@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label_tenvi = new Label();
             lable_soDu = new Label();
             label_createDate = new Label();
@@ -42,6 +43,11 @@
             button_CreateWallet = new Button();
             CreatedDate = new DateTimePicker();
             isEditing = new CheckBox();
+            walletBindingSource = new BindingSource(components);
+            walletBindingSource1 = new BindingSource(components);
+            btn_Xoa = new Button();
+            ((System.ComponentModel.ISupportInitialize)walletBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)walletBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // label_tenvi
@@ -93,7 +99,7 @@
             comboBox_WalletSelect.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBox_WalletSelect.FormattingEnabled = true;
             comboBox_WalletSelect.Location = new Point(441, 71);
-            comboBox_WalletSelect.Margin = new Padding(4, 4, 4, 4);
+            comboBox_WalletSelect.Margin = new Padding(4);
             comboBox_WalletSelect.Name = "comboBox_WalletSelect";
             comboBox_WalletSelect.Size = new Size(310, 38);
             comboBox_WalletSelect.TabIndex = 4;
@@ -115,7 +121,7 @@
             text_TenVi.Enabled = false;
             text_TenVi.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             text_TenVi.Location = new Point(272, 182);
-            text_TenVi.Margin = new Padding(4, 4, 4, 4);
+            text_TenVi.Margin = new Padding(4);
             text_TenVi.Name = "text_TenVi";
             text_TenVi.Size = new Size(856, 36);
             text_TenVi.TabIndex = 6;
@@ -126,7 +132,7 @@
             text_SoDu.Enabled = false;
             text_SoDu.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             text_SoDu.Location = new Point(272, 250);
-            text_SoDu.Margin = new Padding(4, 4, 4, 4);
+            text_SoDu.Margin = new Padding(4);
             text_SoDu.Name = "text_SoDu";
             text_SoDu.Size = new Size(856, 36);
             text_SoDu.TabIndex = 7;
@@ -136,7 +142,7 @@
             text_MieuTa.Enabled = false;
             text_MieuTa.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             text_MieuTa.Location = new Point(272, 401);
-            text_MieuTa.Margin = new Padding(4, 4, 4, 4);
+            text_MieuTa.Margin = new Padding(4);
             text_MieuTa.Multiline = true;
             text_MieuTa.Name = "text_MieuTa";
             text_MieuTa.Size = new Size(856, 172);
@@ -150,7 +156,7 @@
             button_confirmEdit.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button_confirmEdit.ForeColor = Color.Green;
             button_confirmEdit.Location = new Point(490, 592);
-            button_confirmEdit.Margin = new Padding(4, 4, 4, 4);
+            button_confirmEdit.Margin = new Padding(4);
             button_confirmEdit.Name = "button_confirmEdit";
             button_confirmEdit.Size = new Size(218, 48);
             button_confirmEdit.TabIndex = 10;
@@ -163,7 +169,7 @@
             linkLabel_Xoa.ActiveLinkColor = Color.Maroon;
             linkLabel_Xoa.AutoSize = true;
             linkLabel_Xoa.LinkColor = Color.Red;
-            linkLabel_Xoa.Location = new Point(1086, 134);
+            linkLabel_Xoa.Location = new Point(1059, 38);
             linkLabel_Xoa.Margin = new Padding(4, 0, 4, 0);
             linkLabel_Xoa.Name = "linkLabel_Xoa";
             linkLabel_Xoa.Size = new Size(43, 25);
@@ -176,7 +182,7 @@
             // 
             button_CreateWallet.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button_CreateWallet.Location = new Point(775, 71);
-            button_CreateWallet.Margin = new Padding(4, 4, 4, 4);
+            button_CreateWallet.Margin = new Padding(4);
             button_CreateWallet.Name = "button_CreateWallet";
             button_CreateWallet.Size = new Size(154, 41);
             button_CreateWallet.TabIndex = 13;
@@ -188,17 +194,18 @@
             // 
             CreatedDate.Enabled = false;
             CreatedDate.Location = new Point(272, 324);
-            CreatedDate.Margin = new Padding(4, 4, 4, 4);
+            CreatedDate.Margin = new Padding(4);
             CreatedDate.Name = "CreatedDate";
             CreatedDate.Size = new Size(312, 31);
             CreatedDate.TabIndex = 14;
+            CreatedDate.ValueChanged += comboBox_WalletSelect_SelectedIndexChanged;
             // 
             // isEditing
             // 
             isEditing.AutoSize = true;
             isEditing.ForeColor = Color.Blue;
             isEditing.Location = new Point(940, 134);
-            isEditing.Margin = new Padding(4, 4, 4, 4);
+            isEditing.Margin = new Padding(4);
             isEditing.Name = "isEditing";
             isEditing.Size = new Size(118, 29);
             isEditing.TabIndex = 15;
@@ -206,10 +213,29 @@
             isEditing.UseVisualStyleBackColor = true;
             isEditing.CheckedChanged += isEditing_CheckedChanged;
             // 
+            // walletBindingSource
+            // 
+            walletBindingSource.DataSource = typeof(Models.Wallet);
+            // 
+            // walletBindingSource1
+            // 
+            walletBindingSource1.DataSource = typeof(Models.Wallet);
+            // 
+            // btn_Xoa
+            // 
+            btn_Xoa.Location = new Point(1101, 129);
+            btn_Xoa.Name = "btn_Xoa";
+            btn_Xoa.Size = new Size(112, 34);
+            btn_Xoa.TabIndex = 16;
+            btn_Xoa.Text = "Xóa ví";
+            btn_Xoa.UseVisualStyleBackColor = true;
+            btn_Xoa.Click += btn_Xoa_Click;
+            // 
             // ScreenWalletsManagement
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btn_Xoa);
             Controls.Add(isEditing);
             Controls.Add(CreatedDate);
             Controls.Add(button_CreateWallet);
@@ -224,9 +250,11 @@
             Controls.Add(label_createDate);
             Controls.Add(lable_soDu);
             Controls.Add(label_tenvi);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "ScreenWalletsManagement";
             Size = new Size(1216, 666);
+            ((System.ComponentModel.ISupportInitialize)walletBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)walletBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,5 +275,8 @@
         private Button button_CreateWallet;
         private DateTimePicker CreatedDate;
         private CheckBox isEditing;
+        private BindingSource walletBindingSource;
+        private BindingSource walletBindingSource1;
+        private Button btn_Xoa;
     }
 }
